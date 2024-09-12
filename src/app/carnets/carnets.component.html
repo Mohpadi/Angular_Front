@@ -1,0 +1,139 @@
+<!-- <div class="container">
+  <h2>Gestion des Carnets</h2>
+
+  <button (click)="showForm = true" class="les">Ajouter Carnet</button>
+
+  <div *ngIf="showForm" class="form-container">
+    <form (submit)="addOrUpdateCarnet()">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="nom">Nom :</label>
+          <input id="nom" [(ngModel)]="newCarnet.nom" name="nom" required />
+        </div>
+
+        <div class="form-group">
+          <label for="prenom">Prénom :</label>
+          <input id="prenom" [(ngModel)]="newCarnet.prenom" name="prenom" required />
+        </div>
+
+        <div class="form-group">
+          <label for="numero">Numero :</label>
+          <input id="numero" [(ngModel)]="newCarnet.numero" name="numero" required />
+        </div>
+
+        <div class="form-group">
+          <label for="adresse">Adresse :</label>
+          <input id="adresse" [(ngModel)]="newCarnet.adresse" name="adresse" required />
+        </div>
+
+        <div class="form-group">
+          <label for="photo">Photo :</label>
+          <input id="photo" [(ngModel)]="newCarnet.photo" name="photo" required />
+        </div>
+      </div>
+
+      <button type="submit">{{ editingCarnet ? 'Sauvegarder' : 'Ajouter Carnet' }}</button>
+      <button type="button" (click)="cancelEdit()">Annuler</button>
+    </form>
+  </div>
+
+
+  <table *ngIf="!showForm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Numero</th>
+        <th>Adresse</th>
+        <th>Photo</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carnet of carnets">
+        <td>{{ carnet.id }}</td>
+        <td>{{ carnet.nom }}</td>
+        <td>{{ carnet.prenom }}</td>
+        <td>{{ carnet.numero }}</td>
+        <td>{{ carnet.adresse }}</td>
+        <td>{{ carnet.photo }}</td>
+        <td>
+          <button class="edit-button" (click)="editCarnet(carnet)">Modifier</button>
+          <button class="delete-button" (click)="deleteCarnet(carnet.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+<div class="container">
+  <h2>Gestion des Carnets</h2>
+
+  <!-- Cacher le bouton "Ajouter" quand le formulaire est visible -->
+  <button *ngIf="!showForm" (click)="showForm = true" class="les">Ajouter Carnet</button>
+
+  <div *ngIf="showForm" class="form-container">
+    <form (submit)="addOrUpdateCarnet()">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="nom">Nom :</label>
+          <input id="nom" [(ngModel)]="newCarnet.nom" name="nom" required />
+        </div>
+
+        <div class="form-group">
+          <label for="prenom">Prénom :</label>
+          <input id="prenom" [(ngModel)]="newCarnet.prenom" name="prenom" required />
+        </div>
+
+        <div class="form-group">
+          <label for="numero">Numero :</label>
+          <input id="numero" [(ngModel)]="newCarnet.numero" name="numero" required />
+        </div>
+
+        <div class="form-group">
+          <label for="adresse">Adresse :</label>
+          <input id="adresse" [(ngModel)]="newCarnet.adresse" name="adresse" required />
+        </div>
+
+        <div class="form-group">
+          <label for="photo">Photo :</label>
+          <input id="photo" [(ngModel)]="newCarnet.photo" name="photo" required />
+        </div>
+      </div>
+
+      <!-- Les boutons de sauvegarde et d'annulation -->
+      <div class="button-group">
+        <button type="submit" class="submit-btn">{{ editingCarnet ? 'Sauvegarder' : 'Ajouter Carnet' }}</button>
+        <button type="button" class="cancel-btn" (click)="cancelEdit()">Annuler</button>
+      </div>
+    </form>
+  </div>
+
+  <table *ngIf="!showForm" class="styled-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Numero</th>
+        <th>Adresse</th>
+        <th>Photo</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carnet of carnets">
+        <td>{{ carnet.id }}</td>
+        <td>{{ carnet.nom }}</td>
+        <td>{{ carnet.prenom }}</td>
+        <td>{{ carnet.numero }}</td>
+        <td>{{ carnet.adresse }}</td>
+        <td>{{ carnet.photo }}</td>
+        <td>
+          <button class="edit-button" (click)="editCarnet(carnet)">Modifier</button>
+          <button class="delete-button" (click)="deleteCarnet(carnet.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
